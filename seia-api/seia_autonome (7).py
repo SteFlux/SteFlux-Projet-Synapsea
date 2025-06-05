@@ -3,15 +3,20 @@ import subprocess
 import threading
 import time
 import datetime
-import shutil     
-import os          
 import sys
+import os
+import openai
+import shutil
+
+# Rediriger les logs
 sys.stdout = open("/root/seia_autonome_stdout.log", "a", buffering=1)
 sys.stderr = open("/root/seia_autonome_stderr.log", "a", buffering=1)
 
-
 print("=== SEIA Flask STARTUP ===")
-time.sleep(5)
+time.sleep(2)
+
+# Clé OpenAI
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 app = Flask(__name__)
 
@@ -68,28 +73,56 @@ def talk():
         return jsonify({"message": f"🕒 Il est {now}."})
 
     return jsonify({"message": "🤖 SEIA n’a pas compris ta demande. Essaie de reformuler."})
-@app.route("/deploy", methods=["POST"])
-def deploy():
+
+@app.route("/selfedit", methods=["POST"])
+def self_edit():
     try:
-        subprocess.run(["git", "pull"], cwd="/root/SYNAPSEA-SEIA", check=True)
+        data = request.json
+        instruction = data.get("instruction", "")
 
-        updated = []
-        for f in os.listdir("/root/SYNAPSEA-SEIA"):
-            if f.endswith(".html"):
-                src = os.path.join("/root/SYNAPSEA-SEIA", f)
-                dst = os.path.join("/var/www/seia.synapsea.dev", f)
-                shutil.copy(src, dst)
-                os.chown(dst, 33, 33)  # www-data
-                os.chmod(dst, 0o644)
-                updated.append(f)
+        if not instruction:
+            return jsonify({"error": "❌ Aucune instruction reçue."})
 
-        print(f"✅ Déploiement effectué : {updated}")
-        return jsonify({"message": f"✅ Fichiers mis à jour : {', '.join(updated)}"}), 200
+        with open(__file__, "r", encoding="utf-8") as f:
+            original_code = f.read()
 
+        prompt = f"Voici un fichier Python (Flask) nommé seia_autonome.py. Modifie le code selon cette instruction : {instruction}
+
+```python
+{original_code}
+```"
+
+        print("🧠 GPT reçoit la demande d'auto-modification...")
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "Tu es un assistant Python expert, tu modifies le code Flask sur demande."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0
+        )
+
+        new_code = response["choices"][0]["message"]["content"]
+
+        if "```python" in new_code:
+            new_code = new_code.split("```python")[1].split("```")[0].strip()
+
+        backup_path = __file__ + ".bak"
+        shutil.copy(__file__, backup_path)
+        with open(__file__, "w", encoding="utf-8") as f:
+            f.write(new_code)
+
+        print("✅ Code modifié avec succès. Redémarrage de SEIA...")
+        subprocess.Popen(["systemctl", "restart", "seia.service"])
+
+        return jsonify({"message": "✅ Code mis à jour. Redémarrage de SEIA en cours."})
     except Exception as e:
         import traceback
-        print(f"❌ Erreur déploiement : {traceback.format_exc()}")
-        return jsonify({"error": str(e)}), 500
+        print(traceback.format_exc())
+        return jsonify({"error": f"❌ Erreur pendant selfedit : {str(e)}"})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    try:
+        app.run(host="0.0.0.0", port=5000)
+    except OSError as e:
+        print(f"❌ Port déjà utilisé : {e}")
