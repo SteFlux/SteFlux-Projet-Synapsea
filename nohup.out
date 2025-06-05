@@ -1,0 +1,71 @@
+python3: can't open file '/root/SYNAPSEA-SEIA/seia-api/seia_autonome.py': [Errno 2] No such file or directory
+ * Serving Flask app 'seia_autonome'
+ * Debug mode: off
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'seia_autonome'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://37.60.231.214:5000
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [05/Jun/2025 05:53:29] "POST /talk HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2025 05:58:15] "POST /talk HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2025 05:58:20] "POST /talk HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2025 05:58:26] "POST /talk HTTP/1.1" 200 -
+154.212.141.207 - - [05/Jun/2025 07:19:40] "[33mGET / HTTP/1.1[0m" 404 -
+152.32.135.132 - - [05/Jun/2025 07:19:41] "[33mGET / HTTP/1.1[0m" 404 -
+152.32.135.132 - - [05/Jun/2025 07:19:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+184.105.139.69 - - [05/Jun/2025 07:57:34] "[33mGET / HTTP/1.1[0m" 404 -
+184.105.139.69 - - [05/Jun/2025 07:57:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+45.43.33.210 - - [05/Jun/2025 08:35:11] code 400, message Bad request version ('À#À¬À®À+À')
+45.43.33.210 - - [05/Jun/2025 08:35:11] "[35m[1m\x16\x03\x03\x01¦\x01\x00\x01¢\x03\x03T\x8f3,Ó&ÚRíË\x83»\x82\x08\x91\x8d\x9a\x0f\x03&?Ñ°¦Î86<\x9eùêÀ .k³½ã\x13¡\x131u\x09\x8bèñ½\x03ìÕ6\x80\x12\x8fq\x16<¹Ü\x04Ï?;¹\x00\x8a\x00\x16\x003\x00gÀ\x9eÀ¢\x00\x9e\x009\x00kÀ\x9fÀ£\x00\x9f\x00E\x00¾\x00\x88\x00Ä\x00\x9aÀ\x08À\x09À#À¬À®À+À[0m" HTTPStatus.BAD_REQUEST -
+45.43.33.210 - - [05/Jun/2025 08:35:15] "[33mGET / HTTP/1.1[0m" 404 -
+167.94.138.191 - - [05/Jun/2025 09:00:25] code 400, message Bad request version ('À\x14À')
+167.94.138.191 - - [05/Jun/2025 09:00:25] "[35m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03ók\x8d·¸¡j\x9d\x9f\x04Ð°N&\x9bQ\x10&r\x84)\x9eÞ!Xké'Sÿ\x1bí  ½\x85¹WÐg%×Qb]3I÷ú­¤`\x00ë\x16Ó¯'¡NI°ÎÉö\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" HTTPStatus.BAD_REQUEST -
+167.94.138.191 - - [05/Jun/2025 09:00:28] "[33mGET / HTTP/1.1[0m" 404 -
+167.94.138.191 - - [05/Jun/2025 09:00:35] "[33mGET / HTTP/1.1[0m" 404 -
+167.94.138.191 - - [05/Jun/2025 09:00:37] code 505, message Invalid HTTP version (2.0)
+167.94.138.191 - - [05/Jun/2025 09:00:37] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.94.138.191 - - [05/Jun/2025 09:00:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+167.94.138.191 - - [05/Jun/2025 09:00:50] code 400, message Bad request version ('À\x14À')
+167.94.138.191 - - [05/Jun/2025 09:00:50] "[35m[1m\x16\x03\x01\x00÷\x01\x00\x00ó\x03\x03\x0cSmÙÖ\x84+º\x05s\x9eJ(Óþ³V¼Ó²*Ø¥\x9f$²j\x81Ç\x0b9b \x90x¼\x11ìSä\x83ì\x18ÈvÝ»YH\x94*È\x84Ï|ï\x14ÇpÄ}M×Ù«\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" HTTPStatus.BAD_REQUEST -
+167.94.138.191 - - [05/Jun/2025 09:01:03] code 400, message Bad request version ('À\x14À')
+167.94.138.191 - - [05/Jun/2025 09:01:03] "[35m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03¶\x1cH\x07Á\x88áq@­`êTc\x93üd\x1føôk¡DK\x96\x1e\x88\x13\x06ä\x0eÅ \\\x05\x1b\x1f\x91C\x85VÛ\x17³Ô&É¡\x83k\x9b\x0e\x02Çz8ú¸Ð¨\x92{©O\x02\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" HTTPStatus.BAD_REQUEST -
+167.94.138.191 - - [05/Jun/2025 09:01:05] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+167.94.138.191 - - [05/Jun/2025 09:01:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+167.94.138.191 - - [05/Jun/2025 09:01:09] code 400, message Bad request version ('\x00')
+167.94.138.191 - - [05/Jun/2025 09:01:09] "[35m[1m\x16\x03\x01\x00÷\x01\x00\x00ó\x03\x03\x10MÆ\x8bi´\x06ÀN×T}8~\x99·ÙÍëO@¬ôYÀßÓ£\x93|gÛ g\x15Kq°'E\x1aP)¶\x0d\x00[0m" HTTPStatus.BAD_REQUEST -
+205.210.31.165 - - [05/Jun/2025 09:03:12] "[33mGET / HTTP/1.0[0m" 404 -
+172.236.228.224 - - [05/Jun/2025 09:41:25] "[33mGET / HTTP/1.1[0m" 404 -
+96.126.104.20 - - [05/Jun/2025 12:12:47] code 400, message Bad request version ('À\x13À')
+96.126.104.20 - - [05/Jun/2025 12:12:47] "[35m[1m\x16\x03\x01\x00ò\x01\x00\x00î\x03\x03Â\x89/\x06\x06\x13.~×ôpÙ\x84\x97\x14èi\x06Ýùûz\x7f§âÖY\x0cÐÖ5\x81 ¥\x89 \\\x18\x08æÆìv\x99´Y aI\x1dé|\x03íX\x91\x07rM+\x13\x84 \x19ñ\x00&À+À/À,À0Ì©Ì¨À\x09À\x13À[0m" HTTPStatus.BAD_REQUEST -
+96.126.104.20 - - [05/Jun/2025 12:12:47] "[33mGET /signin HTTP/1.1[0m" 404 -
+18.220.154.78 - - [05/Jun/2025 12:40:08] "[33mGET / HTTP/1.1[0m" 404 -
+80.82.70.133 - - [05/Jun/2025 13:14:29] "[33mGET / HTTP/1.0[0m" 404 -
+80.82.77.202 - - [05/Jun/2025 13:15:19] code 400, message Bad request version ('À\x13À')
+80.82.77.202 - - [05/Jun/2025 13:15:19] "[35m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03T\x11!N\x81dè`u­rM¼àÇWò.v¦ò\x9eé­±D\x0b\x1b\x90á?\x9b Þ\x96Ñ)É\x83$|\\3ú,òÿ\x9a,ZÒü)\x9eWÆ\x14*2\x80Ö?´\x93}\x00&À+À/À,À0Ì©Ì¨À\x09À\x13À[0m" HTTPStatus.BAD_REQUEST -
+94.102.49.155 - - [05/Jun/2025 13:15:19] code 400, message Bad request version ('À\x13À')
+94.102.49.155 - - [05/Jun/2025 13:15:19] "[35m[1m\x16\x03\x01\x05¨\x01\x00\x05¤\x03\x03Ú\x80üpF\x86E\x11öb\x02£pYÛòïfUÐË\x91ïLsÏZ.ó[\x91n \x80{É(h\x99£¦N«:è|Ù\x0fâ\x05MzÄ°\x9bç\x0bÙ££\x87\\|.¿\x00\x1aÀ+À/À,À0Ì©Ì¨À\x09À\x13À[0m" HTTPStatus.BAD_REQUEST -
+80.82.77.202 - - [05/Jun/2025 13:15:19] "[33mGET /aaa9 HTTP/1.1[0m" 404 -
+94.102.49.155 - - [05/Jun/2025 13:15:19] "[33mGET /v2/_catalog HTTP/1.1[0m" 404 -
+80.82.77.202 - - [05/Jun/2025 13:15:19] code 400, message Bad request version ('À\x13À')
+80.82.77.202 - - [05/Jun/2025 13:15:19] "[35m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03ã\x9a§r_50¢òì\x0dºrÑd\x80ðü\x9aKæuåKfÂø\x91^íi\x01 åXí§ìæ\x118ÅÉpq\x07*\x08¨\x84\x84ö¢\x0d(Y\x08\x1dIój\x8f\x00J\x1d\x00&À+À/À,À0Ì©Ì¨À\x09À\x13À[0m" HTTPStatus.BAD_REQUEST -
+80.82.77.202 - - [05/Jun/2025 13:15:19] "[33mGET /aab9 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [05/Jun/2025 14:38:52] "POST /talk HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2025 15:24:08] "OPTIONS /talk HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2025 15:24:08] "POST /talk HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2025 16:12:14] "OPTIONS /talk HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2025 16:12:15] "POST /talk HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2025 16:15:13] "POST /talk HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2025 16:18:42] "POST /talk HTTP/1.1" 200 -
+71.6.134.233 - - [05/Jun/2025 16:19:59] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00è\x01\x00\x00ä\x03\x03E¡\x81\x96K%\x82sô^=v¡2Kf')
+71.6.134.233 - - [05/Jun/2025 16:19:59] "[35m[1m\x16\x03\x01\x00è\x01\x00\x00ä\x03\x03E¡\x81\x96K%\x82sô^=v¡2Kf a¤5=Üô[0m" HTTPStatus.BAD_REQUEST -
+71.6.134.233 - - [05/Jun/2025 16:35:20] "[33mGET / HTTP/1.1[0m" 404 -
+71.6.134.233 - - [05/Jun/2025 16:35:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+96.126.104.20 - - [05/Jun/2025 16:36:20] code 400, message Bad request version ('\x9dRc9')
+96.126.104.20 - - [05/Jun/2025 16:36:20] "[35m[1m\x16\x03\x01\x00ò\x01\x00\x00î\x03\x03Ú\x15¨ñbìõæÊai\x0eéç\x07z\x9d\\\x9eP\x9d%0~loÏ:d\x01Ôä Ä @ãêqG»\x87\x13Ý\x87$À \x9dRc9[0m" HTTPStatus.BAD_REQUEST -
+96.126.104.20 - - [05/Jun/2025 16:36:20] "[33mGET /signin HTTP/1.1[0m" 404 -
+127.0.0.1 - - [05/Jun/2025 16:42:35] "POST /talk HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2025 16:46:39] "POST /talk HTTP/1.1" 200 -
