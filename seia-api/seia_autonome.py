@@ -3,6 +3,8 @@ import subprocess
 import threading
 import time
 import datetime
+import shutil     
+import os          
 import sys
 sys.stdout = open("/root/seia_autonome_stdout.log", "a", buffering=1)
 sys.stderr = open("/root/seia_autonome_stderr.log", "a", buffering=1)
@@ -66,6 +68,28 @@ def talk():
         return jsonify({"message": f"🕒 Il est {now}."})
 
     return jsonify({"message": "🤖 SEIA n’a pas compris ta demande. Essaie de reformuler."})
+@app.route("/deploy", methods=["POST"])
+def deploy():
+    try:
+        subprocess.run(["git", "pull"], cwd="/root/SYNAPSEA-SEIA", check=True)
+
+        updated = []
+        for f in os.listdir("/root/SYNAPSEA-SEIA"):
+            if f.endswith(".html"):
+                src = os.path.join("/root/SYNAPSEA-SEIA", f)
+                dst = os.path.join("/var/www/seia.synapsea.dev", f)
+                shutil.copy(src, dst)
+                os.chown(dst, 33, 33)  # www-data
+                os.chmod(dst, 0o644)
+                updated.append(f)
+
+        print(f"✅ Déploiement effectué : {updated}")
+        return jsonify({"message": f"✅ Fichiers mis à jour : {', '.join(updated)}"}), 200
+
+    except Exception as e:
+        import traceback
+        print(f"❌ Erreur déploiement : {traceback.format_exc()}")
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
