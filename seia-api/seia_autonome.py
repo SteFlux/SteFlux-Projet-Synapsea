@@ -43,15 +43,16 @@ def talk():
             return jsonify({"message": "👋 Bonjour joueur ! SEIA est là."})
         if "status" in message or "statut" in message:
             return jsonify({"message": "🟢 SEIA opérationnelle."})
-        if "crée une page" in message or "créer une page" in message:
+          if "crée une page" in message or "créer une page" in message:
             title = "Page personnalisée"
             if "appelée" in message:
                 title = message.split("appelée")[-1].strip().capitalize()
             filename = f"/var/www/seia.synapsea.dev/{title.replace(' ', '_')}.html"
             with open(filename, "w", encoding="utf-8") as f:
-                subprocess.run(["/root/sync_to_github.sh"], check=True)
-           print("✅ Sync GitHub exécutée automatiquement")
                 f.write(f"<html><head><title>{title}</title></head><body><h1>{title}</h1><p>Page par SEIA</p></body></html>")
+            subprocess.run(["/root/sync_to_github.sh"], check=True)
+            print("✅ Sync GitHub exécutée automatiquement")
+            subprocess.Popen(["/root/sync_to_github.sh"])
             return jsonify({"message": f"✅ Page '{title}' créée."})
         if "redémarre" in message or "restart" in message:
             subprocess.Popen(["systemctl", "restart", "seia.service"])
