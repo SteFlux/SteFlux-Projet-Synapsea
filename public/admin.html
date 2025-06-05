@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin SEIA</title>
+</head>
+<body style="background-color:#1e1e1e;color:white;font-family:sans-serif;padding:20px">
+  <h1>🧠 Interface Admin SEIA</h1>
+  <input type="text" id="input" placeholder="Écris à SEIA..." style="width:70%;padding:10px">
+  <button onclick="sendMessage()" style="padding:10px">Envoyer</button>
+  <div id="reponse" style="margin-top:20px;font-size:1.2em;"></div>
+
+  <script>
+    async function sendMessage() {
+      const message = document.getElementById("input").value;
+      const reponseDiv = document.getElementById("reponse");
+      reponseDiv.innerHTML = "⏳ SEIA réfléchit...";
+
+      const response = await fetch("/talk", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await response.json();
+      reponseDiv.innerHTML = `<b>Réponse :</b> ${data.message}`;
+    }
+  </script>
+</body>
+</html>
+
